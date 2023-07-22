@@ -56,4 +56,57 @@ class Book implements IBook
         // TODO: Implement getChapters() method.
         return$this->chapters;
     }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @param string $author
+     */
+    public function setAuthor(string $author)
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * @param string $publisher
+     */
+    public function setPublisher(string $publisher)
+    {
+        $this->publisher = $publisher;
+    }
+
+    /**
+     * @param int $year
+     */
+    public function setYear(int $year)
+    {
+        $this->year = $year;
+    }
+
+    /**
+     * @param string $isbn
+     */
+    public function setIsbn(string $isbn)
+    {
+        $this->isbn = $isbn;
+    }
+
+    /**
+     * @param array $chapters
+     */
+    public function setChapters(array $chapters)
+    {
+        $this->chapters = $chapters;
+    }
+    public function addChapter(string $chapter)
+    {
+        $this->chapters[] = $chapter;
+//        array_push($this->chapters, $chapter);
+    }
 }

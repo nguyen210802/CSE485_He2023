@@ -41,8 +41,8 @@
                         <td>{{$channel->URL}}</td>
                         <td>
 
-                            <a class="btn btn-primary" href="{{ route('channels.show', $channel->ChannelID)  }}">Detail</a>
-                            <a class="btn btn-primary" href="{{ route('channels.edit', $channel->ChannelID) }}">Edit</a>
+                            <a class="btn btn-info" href="{{ route('channels.show', $channel->ChannelID)  }}">Detail</a>
+                            <a class="btn btn-warning" href="{{ route('channels.edit', $channel->ChannelID) }}">Edit</a>
                             <a type="button" class="btn btn-danger text-light" data-bs-toggle="modal" data-bs-target="#{{$channel->ChannelID}}">Delete</a>
 
                             <form action="{{ route('channels.destroy',$channel->ChannelID) }}" method="post">

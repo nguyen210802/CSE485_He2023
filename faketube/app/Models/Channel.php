@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Channel extends Model
 {
     use HasFactory;
-    protected $fillable = ['ChannelName', 'Description', 'URL'];
+    protected $primaryKey = 'ChannelID';
+    protected $fillable = ['ChannelName', 'Description', 'SubscribersCount', 'URL'];
 }

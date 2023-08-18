@@ -29,16 +29,7 @@ class ChannelController extends Controller
      */
     public function store(Request $request)
     {
-
-        $data = $request->validate([
-            'ChannelName' => 'required',
-            'Description' => 'required',
-            'SubscribersCount' => 'required',
-            'URL' => 'nullable|url',
-        ]);
-
-        Channel::create($data);
-
+        Channel::create($request->post());
         return redirect()->route('channels.index')->with('success', 'Channel has been created successfully.');
 
     }
@@ -48,8 +39,7 @@ class ChannelController extends Controller
      */
     public function show(string $id)
     {
-        $channel = Channel::find($id);
-        return view('detail', compact('channel'));
+        //
     }
 
     /**
@@ -66,10 +56,8 @@ class ChannelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $query = "UPDATE channels SET ChannelName = ?, Description = ?, SubscribersCount = ?, URL = ? WHERE ChannelID = ?";
-        $parameters = [$request->input('ChannelName'), $request->input('Description'), $request->input('SubscribersCount'), $request->input('URL'), $id];
-
-        DB::statement($query, $parameters);
+        $channel = Channel::find($id);
+        $channel->fill($request->post())->save();
 
         return redirect()->route('channels.index')->with('success', 'Channel has been updated successfully');
     }
@@ -79,10 +67,8 @@ class ChannelController extends Controller
      */
     public function destroy(string $id)
     {
-        $query = "DELETE FROM channels WHERE ChannelID = ?";
-        $parameters = [$id];
-
-        DB::statement($query, $parameters);
+        $channel = Channel::find($id);
+        $channel->delete();
         return redirect()->route('channels.index')->with('success','Channel Has Been deleted successfully '.$id);
     }
 }

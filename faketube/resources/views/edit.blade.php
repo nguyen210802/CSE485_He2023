@@ -52,9 +52,9 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                         <div class="form-group">
                             <strong>SubscribersCount:</strong>
-                            <input type="text" name="SubscribersCount" class="form-control" placeholder="Channel Description"
+                            <input type="number" name="SubscribersCount" class="form-control" placeholder="Channel SubscribersCount"
                                    value="{{ $channel->SubscribersCount }}">
-                            @error('subscribersCount')
+                            @error('SubscribersCount')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
                         </div>

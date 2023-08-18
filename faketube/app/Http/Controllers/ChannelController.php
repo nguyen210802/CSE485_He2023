@@ -12,7 +12,7 @@ class ChannelController extends Controller
      */
     public function index()
     {
-        $channels = Channel::all();
+        $channels = Channel::orderBy('ChannelID','desc')->get();
         return view('index', compact('channels'));
     }
 
@@ -33,6 +33,7 @@ class ChannelController extends Controller
         $data = $request->validate([
             'ChannelName' => 'required',
             'Description' => 'required',
+            'SubscribersCount' => 'required',
             'URL' => 'nullable|url',
         ]);
 
@@ -65,8 +66,8 @@ class ChannelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $query = "UPDATE channels SET ChannelName = ?, Description = ?, URL = ? WHERE ChannelID = ?";
-        $parameters = [$request->input('ChannelName'), $request->input('Description'), $request->input('URL'), $id];
+        $query = "UPDATE channels SET ChannelName = ?, Description = ?, SubscribersCount = ?, URL = ? WHERE ChannelID = ?";
+        $parameters = [$request->input('ChannelName'), $request->input('Description'), $request->input('SubscribersCount'), $request->input('URL'), $id];
 
         DB::statement($query, $parameters);
 

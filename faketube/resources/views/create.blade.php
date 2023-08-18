@@ -27,7 +27,7 @@
     <form action="{{ route('channels.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
                     <strong>Channel Name:</strong>
                     <input type="text" name="ChannelName" class="form-control" placeholder="Channel Name">
@@ -36,7 +36,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
                     <strong>Channel Description:</strong>
                     <input type="text" name="Description" class="form-control" placeholder="Channel Description">
@@ -45,7 +45,16 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                <div class="form-group">
+                    <strong>Channel SubscribersCount:</strong>
+                    <input type="number" name="SubscribersCount" class="form-control" placeholder="Channel SubscribersCount">
+                    @error('SubscribersCount')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                 <div class="form-group">
                     <strong>Channel URL:</strong>
                     <input type="url" name="URL" class="form-control" placeholder="Channel URL">
@@ -54,7 +63,7 @@
                     @enderror
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary ml-3">Add</button>
+            <button type="submit" class="btn btn-primary mt-3">Add</button>
         </div>
     </form>
 </div>

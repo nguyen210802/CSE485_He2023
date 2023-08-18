@@ -30,7 +30,7 @@
                 @method('PUT')
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <strong>Channel Name:</strong>
                             <input type="text" name="ChannelName" value="{{ $channel->ChannelName }}" class="form-control"
                                    placeholder="Channel Name">
@@ -39,7 +39,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                         <div class="form-group">
                             <strong>Description:</strong>
                             <input type="text" name="Description" class="form-control" placeholder="Channel Description"
@@ -49,7 +49,17 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                        <div class="form-group">
+                            <strong>SubscribersCount:</strong>
+                            <input type="text" name="SubscribersCount" class="form-control" placeholder="Channel Description"
+                                   value="{{ $channel->SubscribersCount }}">
+                            @error('subscribersCount')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                         <div class="form-group">
                             <strong>Channel URL:</strong>
                             <input type="url" name="URL" value="{{ $channel->URL }}" class="form-control"
@@ -59,7 +69,7 @@
                             @enderror
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary ml-3">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
                 </div>
             </form>
         </div>
